@@ -5,10 +5,9 @@ import {AppProps} from 'next/app';
 import {ThemeProvider} from '@material-ui/core/styles';
 import {CacheProvider} from '@emotion/react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Global from '@material-ui/core/GlobalStyles'
 import createCache from '@emotion/cache';
-import createTheme from '../src/theme';
 import {Button} from '@material-ui/core';
+import createTheme from '../src/theme';
 
 export const cache = createCache({key: 'css', prepend: true});
 
@@ -33,13 +32,7 @@ export default function MyApp(props: AppProps) {
             <ThemeProvider theme={theme}>
                 {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
                 <CssBaseline/>
-                <Global
-                    styles={(currTheme) => ({
-                        html: {
-                            backgroundColor: currTheme.palette.background.paper
-                        }
-                    })}
-                />
+
                 <Component {...pageProps} />
                 <Button onClick={() => setDarkMode(prevState => !prevState)}>switch
                     to {darkmode ? 'light' : 'dark'} mode!</Button>

@@ -15,7 +15,7 @@ const createTheme = (isDarkMode: boolean) => createMuiTheme({
       main: red.A400,
     },
     background: {
-      default: '#fff',
+      default: isDarkMode ? '#000' : '#fff',
     },
   },
 });
